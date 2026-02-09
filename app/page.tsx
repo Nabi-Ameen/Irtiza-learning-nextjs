@@ -4,17 +4,13 @@ import Model from "@/components/Model";
 import { useState } from "react";
 
 export default function Home() {
-  const [firstName, setFirstName] = useState("");
-  const [lasstName, setLasttName] = useState("");
+  const [form, setForm] = useState({
+    Fname: "",
+    Lname: "",
+  });
 
   const handleSubmit = () => {
-    const body = {
-      f_name: firstName,
-      l_name: lasstName,
-    };
-    console.log("body", body);
-    setFirstName("");
-    setLasttName("");
+    console.log("form", form);
   };
 
   return (
@@ -25,17 +21,17 @@ export default function Home() {
             type="text"
             placeholder="F-name"
             name="firstName"
-            value={firstName}
+            value={form?.Fname}
             className="p-4 bg-gray-200 border-0 outline-0 rounded-lg w-96"
-            onChange={(e) => setFirstName(e.target.value)}
+            onChange={(e) => setForm({ ...form, Fname: e.target.value })}
           />
           <input
             type="text"
             placeholder="L-name"
             name="lasstName"
-            value={lasstName}
+            value={form?.Lname}
             className="p-4 bg-gray-200 border-0 outline-0 rounded-lg w-96"
-            onChange={(e) => setLasttName(e.target.value)}
+            onChange={(e) => setForm({ ...form, Lname: e.target.value })}
           />
 
           <button
