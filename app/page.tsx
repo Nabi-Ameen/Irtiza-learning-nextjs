@@ -15,9 +15,9 @@ export default function Home() {
       museumTour: false,
       foodTour: false,
     },
+    profile: null,
   });
 
-  console.log("form", form);
   const handleSubmit = () => {
     console.log("form", form);
   };
@@ -32,6 +32,17 @@ export default function Home() {
         [name]: checked,
       },
     });
+  };
+
+  const handleFile = (e: any) => {
+    const file = e.target.files[0];
+
+    if (file) {
+      setForm({
+        ...form,
+        profile: file,
+      });
+    }
   };
 
   return (
@@ -135,6 +146,8 @@ export default function Home() {
               foodTour
             </label>
           </div>
+
+          <input type="file" onChange={handleFile} className="border" />
 
           <button
             className="bg-blue-800 text-white rounded-lg p-4"
