@@ -5,6 +5,7 @@ export function Header(props: any) {
     { name: "Home", link: "/" },
     { name: "About Us", link: "/aboutus" },
     { name: "Contact Us", link: "/contactus" },
+    { name: "Users", link: "/users" },
   ];
 
   return (
